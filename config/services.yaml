@@ -1,0 +1,4 @@
+services:
+
+  # TEMPLATE
+  # - try to avoid 'autoload' and 'autoconfigure'

@@ -1,0 +1,19 @@
+services:
+  db:
+    image: 'mariadb:10.10.2'
+    tmpfs:
+      - /tmp
+      - /var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 'pimcore'
+      MYSQL_DATABASE: 'pimcore_test'
+      MYSQL_USER: 'pimcore'
+      MYSQL_PASSWORD: 'pimcore'
+
+  php:
+    image: 'pimcore/pimcore:PHP8.1-cli'
+    working_dir: '/app'
+    environment:
+      DB_URL: 'mysql://pimcore:pimcore@db:3306/pimcore_test?serverVersion=mariadb-10.10.2'
+    volumes:
+      - './:/app'

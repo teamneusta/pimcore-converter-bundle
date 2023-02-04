@@ -1,0 +1,53 @@
+{
+  "name": "teamneusta/pimcore-converter-bundle",
+  "type": "pimcore-bundle",
+  "description": "Converter Bundle description",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "team neusta GmbH",
+      "email": "info@team-neusta.de",
+      "homepage": "https://www.team-neusta.de/",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.0",
+    "pimcore/pimcore": "^10.0",
+    "teamneusta/converter-bundle": "^1.0"
+  },
+  "require-dev": {
+    "phpspec/prophecy-phpunit": "^2.0",
+    "phpunit/phpunit": "^9.5",
+    "friendsofphp/php-cs-fixer": "^3.11",
+    "phpstan/phpstan": "^1.8",
+    "phpstan/phpstan-phpunit": "^1.1",
+    "phpstan/phpstan-symfony": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Neusta\\Pimcore\\ConverterBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Neusta\\Pimcore\\ConverterBundle\\Tests\\": "tests/"
+    },
+    "classmap": [
+      "tests/app/TestKernel.php"
+    ]
+  },
+  "scripts": {
+    "cs:check": "php-cs-fixer fix -v --diff --dry-run",
+    "cs:fix": "php-cs-fixer fix -v --diff",
+    "phpstan": "phpstan analyse --level=${PHPSTAN_LEVEL:-8} -c phpstan.neon",
+    "phpstan:baseline": "phpstan analyse --level=${PHPSTAN_LEVEL:-8} -c phpstan.neon --generate-baseline",
+    "tests": "phpunit"
+  },
+  "scripts-descriptions": {
+    "cs:check": "Checks code style (but doesn't fix anything)",
+    "cs:fix": "Checks and fixes code style",
+    "phpstan": "Checks code against phpstan rules",
+    "tests": "runs all the phpunit tests"
+  }
+}

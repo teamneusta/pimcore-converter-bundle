@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Neusta\Pimcore\ConverterBundle\Source\SymfonySourceProvider:
+    arguments:
+      $resourceDirectories:
+        - '%kernel.project_dir%/tests/translation-fixtures'
+      $enabledLocales:
+        - 'en'

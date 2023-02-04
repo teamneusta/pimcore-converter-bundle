@@ -1,0 +1,6 @@
+doctrine:
+  dbal:
+    url: '%env(DB_URL)%'
+    mapping_types:
+      enum: string
+      bit: boolean
